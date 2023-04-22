@@ -28,20 +28,20 @@ func (h handler) Create(c echo.Context) error {
 	}
 
 	if err := h.useCase.Create(&m); err != nil {
-		return h.responser.Error(c, "useCase.Create()", err)
+		return h.responser.Error(c, "useCreate()", err)
 	}
 
 	return c.JSON(h.responser.Created(m))
+
 }
 
-// MySelf returns the data from my profile
+// Myself returns the data from my profile
 func (h handler) MySelf(c echo.Context) error {
 	ID, ok := c.Get("userID").(uuid.UUID)
 	if !ok {
 		return h.responser.Error(c, "c.Get().(uuid.UUID)", errors.New("couldn´t parse the ID"))
 	}
-
-	u, err := h.useCase.GetByID(ID)
+	u, err := h.useCase.GetbyID(ID)
 	if err != nil {
 		return h.responser.Error(c, "useCase.GetWhere()", err)
 	}
