@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/duglascanas/ecommerce/infrastructure/handler"
+	//"github.com/duglascanas/ecommerce/infrastructure/handler"
 	"github.com/duglascanas/ecommerce/infrastructure/handler/response"
 )
 
